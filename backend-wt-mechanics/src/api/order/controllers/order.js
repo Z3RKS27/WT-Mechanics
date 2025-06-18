@@ -1,5 +1,6 @@
 'use strict';
-// @ts-ignore
+//@ts-ignore
+
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 const { createCoreController } = require('@strapi/strapi').factories;
 
@@ -15,21 +16,22 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
 
       const lineItems = await Promise.all(
         products.map(async (product) => {
-          const items = await strapi
-            .service("api::product.product")
-            .find({ filters: { product_name: product.name } });
+          const response = await strapi.entityService.findMany("api::product.product", {
+            filters: { productName: product.name },
+            limit: 1,
+          });
 
-          const item = items.results?.[0];
+          const item = response?.[0];
 
           if (!item) {
-            throw new Error(`Producto con nombre ${product.name} no encontrado.`);
+            throw new Error(`Producto con nombre '${product.name}' no encontrado.`);
           }
 
           return {
             price_data: {
               currency: "mxn",
               product_data: {
-                name: item.product_name,
+                name: item.productName,
               },
               unit_amount: Math.round(item.price * 100),
             },

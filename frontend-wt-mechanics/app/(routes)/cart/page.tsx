@@ -26,6 +26,7 @@ export default function Page() {
       await stripe?.redirectToCheckout({
         sessionId: (res.data as { stripeSession: { id: string } }).stripeSession.id
       });
+      removeAll(); // Limpiar el carrito después de la compra
 
     } catch (error) {
       console.log(error);
