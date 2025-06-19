@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Product, ProductResponse } from "@/types/product";
-import { url } from "inspector";
 
 export const useGetFeaturedProducts = () => {
   const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?filters[isFeatured][$eq]=true&populate=images`;
