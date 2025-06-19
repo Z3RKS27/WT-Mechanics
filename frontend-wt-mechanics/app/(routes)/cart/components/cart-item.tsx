@@ -31,7 +31,7 @@ const CartItem = (props: CartItemProps) => {
                 </div>
                 <div>
                     <button className={cn("rounded-full flex items-center justify-center bg-white shadow-md p-1 hover:scale-110 transition")}>
-                        <X size={20} onClick={() => removeItem(product.id_product)} />
+                        <X size={20} onClick={() => removeItem(product.id)} />
                     </button>
                 </div>
             </div>
