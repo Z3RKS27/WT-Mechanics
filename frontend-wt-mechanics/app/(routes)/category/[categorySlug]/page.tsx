@@ -1,6 +1,6 @@
 "use client"
 
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useGetProductsByCategory } from "@/api/getCategoryProduct";
 import ProductCard from "../components/product-card";
 import { Separator } from "@/components/ui/separator";
@@ -12,8 +12,7 @@ import { Product } from "@/types/product2";
 const Page = () => {
     const params = useParams();
     const categorySlug = params?.categorySlug as string;
-    const { result: products, loading, error } = useGetProductsByCategory(categorySlug);
-    const router = useRouter();
+    const { result: products, loading } = useGetProductsByCategory(categorySlug);
 
     const [FilterOrigin, setFilterOrigin] = useState("")
 

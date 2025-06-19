@@ -1,6 +1,7 @@
 "use client"
 import { useGetCategories } from "@/api/getProducts";
 import Link from "next/link";
+import Image from "next/image";
 import { CategoryType } from "@/types/category";
 
 const ChooseCategory = () => {
@@ -20,7 +21,8 @@ const ChooseCategory = () => {
                         href={`/category/${category.slug}`}
                         className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg"
                     >
-                        <img
+                        <Image
+                        width={250} height={150}
                             src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.url}`}
                             alt={category.categoryName}
                             className="w-[250px] h-[150px] transition duration-300 ease-in-out rounded-lg hover:scale-125"

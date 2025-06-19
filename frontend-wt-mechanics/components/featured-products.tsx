@@ -8,6 +8,7 @@ import IconButton from "./icon-button";
 import { Expand, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/hooks/use-cart";
+import Image from "next/image";
 
 const FeaturedProducts = () => {
   const { result, loading, error } = useGetFeaturedProducts();
@@ -42,10 +43,12 @@ const FeaturedProducts = () => {
                 <div className="p-1">
                   <Card className="py-4 border border-gray-200 shadow none">
                     <CardContent className="relative flex items-center justify-center px-6 py-2">
-                      <img
+                      <Image
                         src={firstImageUrl}
                         alt={productName}
                         className="object-cover w-full h-64 rounded-xl bg-gray-50"
+                        width={300}
+                        height={300}
                       />
                         <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                             <div className="flex justify-center gap-x-6">

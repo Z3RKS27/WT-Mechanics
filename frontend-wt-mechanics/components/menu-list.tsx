@@ -23,9 +23,8 @@ const MenuList = () => {
             <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
-                  <a
+                  <Link href={"/"}><a
                     className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                    href="/"
                   >
                     <div className="mt-4 mb-2 text-lg font-medium">
                       WT Mechanics
@@ -33,7 +32,7 @@ const MenuList = () => {
                     <p className="text-muted-foreground text-sm leading-tight">
                     WT Mechanics es tu aliado confiable en el mundo automotriz. Encontrá los mejores servicios, repuestos y accesorios para mantener tu auto en óptimas condiciones. Calidad, atención profesional y compra 100% online, ¡todo en un solo lugar!
                     </p>
-                  </a>
+                  </a></Link>
                 </NavigationMenuLink>
               </li>
               <ListItem href="/shop" title="Tienda">
