@@ -18,7 +18,7 @@ const Page = () => {
 
     console.log(FilterOrigin)
 
-    const filteredProducts = products !== null && !loading &&(
+    const filteredProducts = products !== null && !loading && (
         FilterOrigin === '' ? products : products.filter((product) => product.taste === FilterOrigin)
     )
 
@@ -32,20 +32,21 @@ const Page = () => {
             <Separator />
 
             <div className="sm:flex sm:justify-between">
-                <FilterControlsCategory setFilterOrigin={setFilterOrigin}/>
+                <FilterControlsCategory setFilterOrigin={setFilterOrigin} />
 
                 <div className="grid gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
                     {loading && (
                         <SkeletonSchema grid={3} />
                     )}
-                    {filteredProducts !== null && !loading && (
+                    {Array.isArray(filteredProducts) && !loading && (
                         filteredProducts.map((product: Product) => (
                             <ProductCard key={product.id} product={product} />
                         ))
                     )}
-                    {filteredProducts !== null && !loading && filteredProducts.length === 0 && (
+                    {Array.isArray(filteredProducts) && !loading && filteredProducts.length === 0 && (
                         <p>No hay productos con este filtro</p>
                     )}
+
                 </div>
             </div>
 

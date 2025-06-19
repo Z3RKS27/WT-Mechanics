@@ -6,6 +6,7 @@ import { formatPrice } from "@/lib/formatPrice";
 import { cn } from "@/lib/utils";
 import { Product } from "@/types/product";
 import { X } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface FavoritosProps {
@@ -26,7 +27,7 @@ const Favoritos = (props: FavoritosProps) => {
     return (
         <li className="flex py-6 border-b">
             <div onClick={() => router.push(`/product/${product.slug}`)}>
-                <img
+                <Image width={240} height={240}
                     src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
                     alt="favorite"
                     className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32" />

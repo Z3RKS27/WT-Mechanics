@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { formatPrice } from "@/lib/formatPrice";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 type ProductCardProps = {
   product: Product;
@@ -24,7 +25,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <CarouselContent>
           {product.images?.map((image) => (
             <CarouselItem key={image.id} className="group">
-              <img
+              <Image width={400} height={250}
                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
                 alt="image"
                 className="rounded-xl cover"
