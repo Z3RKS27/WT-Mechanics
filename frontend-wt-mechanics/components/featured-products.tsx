@@ -40,8 +40,8 @@ const FeaturedProducts = () => {
 
             return (
               <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/3 group">
-                <div className="p-1">
-                  <Card className="py-4 border border-gray-200 shadow none">
+                <div className="p-1 h-full">
+                  <Card className="h-full flex flex-col justify-between py-4 border border-gray-200 shadow-none">
                     <CardContent className="relative flex items-center justify-center px-6 py-2">
                       <Image
                         src={firstImageUrl}
@@ -50,26 +50,31 @@ const FeaturedProducts = () => {
                         width={300}
                         height={300}
                       />
-                        <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
-                            <div className="flex justify-center gap-x-6">
-                                <IconButton onClick={() => router.push(`product/${product.slug}`)} 
-                                icon={<Expand size={20} className="text-gray-700" />} />
-                                <IconButton onClick={() => addItem(product)}
-                                icon={<ShoppingCart size={20} className="text-gray-700" />} />
-                                
-                            </div>
-                        </div>    
-                        
+                      <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
+                        <div className="flex justify-center gap-x-6">
+                          <IconButton
+                            onClick={() => router.push(`product/${product.slug}`)}
+                            icon={<Expand size={20} className="text-gray-700" />}
+                          />
+                          <IconButton
+                            onClick={() => addItem(product)}
+                            icon={<ShoppingCart size={20} className="text-gray-700" />}
+                          />
+                        </div>
+                      </div>
                     </CardContent>
-                    <h3 className="font-bold py-4 px-2 text-center">{product.productName}</h3>
+                    <h3 className="font-bold py-4 px-2 text-center text-sm sm:text-base line-clamp-1 h-[2.5rem]">
+                      {product.productName}
+                    </h3>
                   </Card>
                 </div>
               </CarouselItem>
+
             );
           })}
         </CarouselContent>
-        <CarouselPrevious/>
-        <CarouselNext/>
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
     </div>
   );
