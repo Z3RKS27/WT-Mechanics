@@ -124,3 +124,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+svg[data-next-mark-loading] {
+  display: none !important;
+}

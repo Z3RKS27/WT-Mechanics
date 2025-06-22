@@ -41,7 +41,7 @@ const MenuList = () => {
               <ListItem href="/offers" title="Ofertas">
                 Seccion dedicada a promociones y descuentos especiales
               </ListItem>
-              <ListItem href="/" title="Accesorios">
+              <ListItem href="/accesorios" title="Accesorios">
                 Productos complementarios aromatizantes, alfombrillas, soportes, etc.
               </ListItem>
             </ul>
@@ -103,7 +103,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Otros Servicios",
-    href: "/category/otros",
+    href: "/category/otros-servicios",
     description:
       "Servicios adicionales como lavado, personalización, asistencia vial, trámites legales, instalación de accesorios, entre otros no clasificados como mantenimiento directo.",
   },
