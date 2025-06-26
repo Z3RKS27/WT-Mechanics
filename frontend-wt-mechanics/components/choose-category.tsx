@@ -23,7 +23,7 @@ const ChooseCategory = () => {
                     >
                         <Image
                         width={250} height={150}
-                            src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.url}`}
+                            src={`${category.mainImage.url}`}
                             alt={category.categoryName}
                             className="w-[250px] h-[150px] transition duration-300 ease-in-out rounded-lg hover:scale-125"
                         />
