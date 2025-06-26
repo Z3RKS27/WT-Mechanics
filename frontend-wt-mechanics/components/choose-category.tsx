@@ -22,12 +22,18 @@ const ChooseCategory = () => {
                         className="relative max-w-xs mx-auto overflow-hidden bg-no-repeat bg-cover rounded-lg"
                     >
                         <Image
-                        width={250} height={150}
-                            src={`${category.mainImage.url}`}
+                            width={250}
+                            height={150}
+                            src={category.mainImage.url.startsWith("http")
+                                ? category.mainImage.url
+                                : `${process.env.NEXT_PUBLIC_BACKEND_URL}${category.mainImage.url}`
+                            }
                             alt={category.categoryName}
-                            className="w-[250px] h-[150px] transition duration-300 ease-in-out rounded-lg hover:scale-125"
+                            className="w-[250px] h-[150px] transition duration-300 ease-in-out rounded-lg hover:scale-125 object-cover"
                         />
-                        <p className="absolute w-full py-2 text-lg font-bold text-center text-white bottom-5 backdrop-blur-lg">{category.categoryName}</p>
+                        <p className="absolute w-full py-2 text-lg font-bold text-center text-white bottom-5 backdrop-blur-lg">
+                            {category.categoryName}
+                        </p>
                     </Link>
                 ))}
             </div>

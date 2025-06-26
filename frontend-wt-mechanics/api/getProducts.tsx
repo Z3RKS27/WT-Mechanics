@@ -18,12 +18,14 @@ export function useGetCategories() {
                     categoryName: item.categoryName,
                     slug: item.slug,
                     mainImage: {
-                        url: item.mainImage.url  // ✅ ya viene plano
+                        url: item.mainImage?.url || 
+                             item.mainImage?.formats?.thumbnail?.url || 
+                             "/no-image.png"
                     }
                 }));
 
-                setResult(categories);
-                setLoading(false);
+                setResult(categories)
+                setLoading(false)
             } catch (error: any) {
                 setError(error?.message || "Error")
                 setLoading(false)
