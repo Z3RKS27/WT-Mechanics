@@ -33,7 +33,13 @@ const FeaturedProducts = () => {
 
             const { id, productName, images } = product;
 
-            const firstImageUrl = images?.[0]?.url ?? "/no-image.png";
+            const firstImageUrl =
+              images && images.length > 0
+                ? images[0].url.startsWith("http")
+                  ? images[0].url
+                  : `${process.env.NEXT_PUBLIC_BACKEND_URL}${images[0].url}`
+                : "/no-image.png";
+
 
             return (
               <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/3 group">
