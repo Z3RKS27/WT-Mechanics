@@ -26,7 +26,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           {product.images?.map((image) => (
             <CarouselItem key={image.id} className="group">
               <Image width={400} height={250}
-                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
+                src={image.url.startsWith("http") ? image.url : `${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
                 alt="image"
                 className="rounded-xl cover"
               />
